@@ -54,10 +54,6 @@ function updateEventDisplay(index) {
     
     map.flyTo({
         center: [event.location.lng, event.location.lat],
-        zoom: 17,
-        pitch: 60,
-        bearing: -30,
-        duration: 1500
     });
     
     highlightMarker(index);

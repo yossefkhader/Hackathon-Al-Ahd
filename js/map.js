@@ -2,15 +2,14 @@ let map;
 let markers = [];
 
 function initMap() {
-    mapboxgl.accessToken = 'pk.eyJ1IjoiYW1pcm1hc2Fyd2VoNzQiLCJhIjoiY205OGozNTN2MDNwMTJsc2RoZ3RycmpkcCJ9.KqG_QBrKKtBjcGyUzX2flQ';
+    mapboxgl.accessToken = 'pk.eyJ1IjoieWs5IiwiYSI6ImNtOWx1dHNpajA2ZXEyanM5bWk4dHlqYmwifQ.UhU4D6Oh9ZOpis25a0-RuQ';
 
     map = new mapboxgl.Map({
         container: 'map',
-        style: 'mapbox://styles/mapbox/satellite-streets-v11',
+        style: 'mapbox://styles/yk9/cm9lvmphp005g01qs22s674h8',
         center: [35.2354, 31.7781],
-        zoom: 17,
-        pitch: 60,
-        bearing: -30,
+        zoom: 16,
+        bearing: -10,
         antialias: true
     });
 
