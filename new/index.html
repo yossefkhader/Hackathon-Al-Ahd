@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced World History Timeline Map</title>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.css" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1 class="text-2xl">World History Timeline Map (1200 CE - Present)</h1>
+    </header>
+    
+    <div class="controls">
+        <button class="play-button" id="play-pause">
+            <i class="fas fa-play"></i> <span>Play</span>
+        </button>
+        
+        <div class="slider-container">
+            <input type="range" id="year-slider" min="1200" max="2024" value="1200" step="1">
+            <div class="timeline-markers" id="timeline-markers">
+                <!-- Timeline markers will be added dynamically -->
+            </div>
+        </div>
+        
+        <div class="year-display" id="year-display">1200 CE</div>
+        
+        <div class="speed-control">
+            <label>Speed:</label>
+            <select id="playback-speed">
+                <option value="1">Slow</option>
+                <option value="5" selected>Normal</option>
+                <option value="10">Fast</option>
+            </select>
+        </div>
+    </div>
+    
+    <div class="key-events">
+        <button class="key-event-btn" data-year="1258">Mongol Sack of Baghdad</button>
+        <button class="key-event-btn" data-year="1453">Ottoman Conquest of Constantinople</button>
+        <button class="key-event-btn" data-year="1517">Ottoman Conquest of Egypt</button>
+        <button class="key-event-btn" data-year="1798">Napoleon's Egypt Campaign</button>
+        <button class="key-event-btn" data-year="1918">End of Ottoman Empire</button>
+        <button class="key-event-btn" data-year="1948">Israel Founding</button>
+        <button class="key-event-btn" data-year="1979">Iranian Revolution</button>
+        <button class="key-event-btn" data-year="2011">Arab Spring</button>
+    </div>
+    
+    <div class="timeline-legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(142, 68, 173, 0.5);"></div>
+            <span>Ottoman Empire</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(41, 128, 185, 0.5);"></div>
+            <span>Mamluk Sultanate</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(39, 174, 96, 0.5);"></div>
+            <span>Safavid/Persian Empire</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(243, 156, 18, 0.5);"></div>
+            <span>British/French Influence</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: rgba(231, 76, 60, 0.5);"></div>
+            <span>Modern States</span>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <button class="toggle-panel" id="toggle-panel">
+            <i class="fas fa-info-circle"></i>
+        </button>
+        
+        <!-- <div class="map-layers-control">
+            <div class="layer-option">
+                <input type="checkbox" id="boundaries-toggle" checked>
+                <label for="boundaries-toggle">Show Historical Boundaries</label>
+            </div>
+            <div class="layer-option">
+                <input type="checkbox" id="events-toggle" checked>
+                <label for="events-toggle">Show Events</label>
+            </div>
+            <div class="layer-option">
+                <input type="checkbox" id="trade-routes-toggle">
+                <label for="trade-routes-toggle">Show Trade Routes</label>
+            </div>
+            <div class="layer-option">
+                <label for="map-style">Map Style:</label>
+                <select id="map-style">
+                    <option value="standard">Standard</option>
+                    <option value="satellite">Satellite</option>
+                    <option value="terrain">Terrain</option>
+                </select>
+            </div>
+        </div> -->
+        
+        <div id="map" style="position: relative;">
+            <div class="loading-overlay" id="loading-overlay">
+                <div>
+                    <div class="loading-spinner"></div>
+                    <p>Loading map...</p>
+                </div>
+            </div>
+        </div>
+        
+        <div id="info-panel">
+            <div class="region-buttons">
+                <button class="button active" data-region="middle-east">Middle East</button>
+                <button class="button" data-region="europe">Europe</button>
+                <button class="button" data-region="asia">Asia</button>
+                <button class="button" data-region="africa">Africa</button>
+                <button class="button" data-region="americas">Americas</button>
+            </div>
+            
+            <h2>World in <span id="year-title">1200</span> CE</h2>
+            
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="political">Political</button>
+                <button class="tab-button" data-tab="cultural">Cultural</button>
+                <button class="tab-button" data-tab="economic">Economic</button>
+                <button class="tab-button" data-tab="global">Global Context</button>
+            </div>
+            
+            <div id="political-tab" class="tab-content active">
+                <div id="region-info">
+                    <h3>Middle East</h3>
+                    <div id="region-details">
+                        <p><strong>Political Status:</strong> Ayyubid Dynasty rules Egypt and parts of the Levant</p>
+                        <p><strong>Key Events:</strong> Conflicts between Crusader states and Muslim powers continue</p>
+                        <p><strong>Economy:</strong> Key center of trade between East and West</p>
+                    </div>
+                </div>
+                
+                <div id="key-figures">
+                    <h3>Key Figures</h3>
+                    <div class="key-figure">
+                        <div class="key-figure-image">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="key-figure-info">
+                            <h4>Al-Adil I</h4>
+                            <p><strong>Title:</strong> Sultan of Egypt and Syria</p>
+                            <p><strong>Significance:</strong> Brother of Saladin who consolidated Ayyubid power after Saladin's death</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="global-events">
+                    <h3>Major Events</h3>
+                    <div id="events-list">
+                        <div class="event">
+                            <h4>1200 CE Middle East</h4>
+                            <p>The Ayyubid Dynasty under Al-Adil I (brother of Saladin) controls Egypt and much of the Levant. The region is recovering from the Third Crusade and experiencing relative stability under Muslim rule.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="cultural-tab" class="tab-content">
+                <h3>Cultural Developments</h3>
+                <div id="cultural-developments">
+                    <p><strong>Arts and Architecture:</strong> Islamic architectural styles flourishing across the region with distinctive regional variations</p>
+                    <p><strong>Science and Learning:</strong> Ongoing translations and commentaries on Greek philosophical and scientific works</p>
+                    <p><strong>Religion:</strong> Islamic theological debates between different schools of thought continue</p>
+                    
+                    <div class="figure">
+                        <div class="flex items-center justify-center bg-gray-200 h-40">
+                            <i class="fas fa-image text-4xl text-gray-400"></i>
+                        </div>
+                        <div class="figure-caption">Example of Ayyubid architecture from the early 13th century</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="economic-tab" class="tab-content">
+                <h3>Economic Landscape</h3>
+                <div id="economic-data">
+                    <p><strong>Trade Routes:</strong> Major trade networks connecting Europe, Africa, and Asia pass through Middle Eastern cities</p>
+                    <p><strong>Key Resources:</strong> Textiles, spices, precious metals, and agricultural products</p>
+                    <p><strong>Economic Centers:</strong> Cairo, Damascus, Jerusalem, and Baghdad serve as major commercial hubs</p>
+                    
+                    <div class="figure">
+                        <div class="flex items-center justify-center bg-gray-200 h-40">
+                            <i class="fas fa-image text-4xl text-gray-400"></i>
+                        </div>
+                        <div class="figure-caption">Illustration of a medieval Middle Eastern marketplace (souk)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="global-tab" class="tab-content">
+                <h3>Global Context</h3>
+                <div class="global-context">
+                    <p><strong>Europe:</strong> The Fourth Crusade is being prepared. Feudal system dominates social organization.</p>
+                    <p><strong>Asia:</strong> Genghis Khan is unifying Mongol tribes. Song Dynasty rules in China with technological advancements.</p>
+                    <p><strong>Africa:</strong> Mali Empire beginning to form in West Africa. Trade networks across Sahara flourishing.</p>
+                    <p><strong>Americas:</strong> Maya civilization in decline. Inca and Aztec empires have not yet risen to prominence.</p>
+                </div>
+            </div>
+            
+            <div id="quiz-section" class="quiz-container">
+                <h3>Test Your Knowledge</h3>
+                <p id="quiz-question">Which dynasty ruled Egypt and parts of the Levant in 1200 CE?</p>
+                <div class="quiz-options">
+                    <button class="quiz-option" data-correct="true">Ayyubid Dynasty</button>
+                    <button class="quiz-option">Mamluk Sultanate</button>
+                    <button class="quiz-option">Fatimid Caliphate</button>
+                    <button class="quiz-option">Ottoman Empire</button>
+                </div>
+                <div class="quiz-feedback hidden" id="quiz-feedback"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.min.js"></script>
+    
+    <!-- Application Scripts -->
+    <script src="data.js"></script>
+    <script src="map.js"></script>
+    <script src="timeline.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
