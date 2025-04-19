@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,31 +22,19 @@
                 <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path>
             </svg>
         </div>
-        
-        <div class="info-button" id="info-button">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"></circle>
-                <line x1="12" y1="16" x2="12" y2="12"></line>
-                <line x1="12" y1="8" x2="12.01" y2="8"></line>
-            </svg>
-        </div>
-        
-        <div class="map-legend">
-            <div class="map-legend-title">Event Location</div>
-            <div class="map-legend-desc">Each marker represents the exact location of a historical event at the Al-Aqsa Mosque complex. Click on markers to view event details.</div>
-        </div>
+
         
         <div class="info-panel">
             <div class="event-title" id="event-title">Muslim Conquest of Jerusalem</div>
             <div class="event-image-container">
                 <div class="carousel-control carousel-prev" id="prev-image">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="15 18 9 12 15 6"></polyline>
+                        <polyline points="9 18 15 12 9 6"></polyline>
                     </svg>
                 </div>
                 <div class="carousel-control carousel-next" id="next-image">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polyline points="9 18 15 12 9 6"></polyline>
+                        <polyline points="15 18 9 12 15 6"></polyline>
                     </svg>
                 </div>
                 <img src="" alt="Event Image" class="event-image" id="event-image">
@@ -54,49 +42,14 @@
             <div class="event-description" id="event-description">
                 Loading event details...
             </div>
-            
-            <div class="before-after-container">
-                <div class="before-image relative">
-                    <div class="before-label">Before</div>
-                    <img src="" alt="Before" id="before-image">
-                </div>
-                <div class="after-image relative">
-                    <div class="after-label">After</div>
-                    <img src="" alt="After" id="after-image">
-                </div>
-            </div>
-            
-            <div class="info-section">
-                <div class="info-label">Ruling Power:</div>
-                <div class="info-value" id="ruling-power">-</div>
-                <div class="info-label">Event Type:</div>
-                <div class="info-value" id="event-type">-</div>
-                <div class="info-label">Significance:</div>
-                <div class="info-value" id="significance">-</div>
-            </div>
-            
+        
             <button class="test-knowledge-btn" id="test-knowledge-btn">Test Your Knowledge</button>
         </div>
         
         <div class="timeline">
-            <div class="nav-button" id="prev-event">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="15 18 9 12 15 6"></polyline>
-                </svg>
-            </div>
-            <div class="year-display" id="year-display">637</div>
-            <div class="nav-button" id="play-pause">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="play-pause-icon">
-                    <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                </svg>
-            </div>
-            <div class="nav-button" id="next-event">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="9 18 15 12 9 6"></polyline>
-                </svg>
-            </div>
-            <div class="timeline-dots" id="timeline-dots">
-                <!-- Timeline dots will be generated here -->
+            <div class="timeline-wrapper">
+                <div class="event-selector" id="event-selector"></div>
+                <div class="era-selector" id="timeline-dots"></div>
             </div>
         </div>
     </div>

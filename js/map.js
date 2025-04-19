@@ -116,40 +116,6 @@ function highlightMarker(index) {
 }
 
 // Get color for event type
-function getEventTypeColor(type) {
-    const t = type.toLowerCase();
-    switch (t) {
-        case 'construction':
-            return '#3498db';
-        case 'conflict':
-            return '#e74c3c';
-        case 'political':
-            return '#f39c12';
-        case 'cultural':
-            return '#2ecc71';
-        case 'expansion':
-            return '#9b59b6'; // Purple
-        case 'reconstruction':
-            return '#e67e22'; // Orange
-        case 'conquest':
-            return '#1abc9c'; // Turquoise
-        case 'war/administrative change':
-            return '#d35400'; // Dark Orange
-        case 'attack/destruction':
-            return '#c0392b'; // Red
-        case 'restoration':
-            return '#27ae60'; // Green
-        case 'reconstruction/cultural heritage':
-            return '#8e44ad'; // Deep Purple
-        case 'political/conflict':
-            return '#f39c12'; // (Same as political)
-        case 'political/security crisis':
-            return '#16a085'; // Teal
-        case 'contemporary status':
-            return '#2ecc71'; // Green
-        case 'reconquest/restoration':
-            return '#2980b9'; // Blue
-        default:
-            return '#95a5a6'; // Default grey
-    }
+function getEventTypeColor() {
+    return '#95a5a6'; // Default grey
 }
