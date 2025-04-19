@@ -31,13 +31,7 @@ const timelineData = {
                 "https://upload.wikimedia.org/wikipedia/commons/f/f8/Entry_of_Caliph_Umar_into_Jerusalem%2C_637.jpg",
                 "https://themuslim500.com/wp-content/uploads/2018/08/umar-enters-jerusalem-painting-1050x600.jpg"
             ],
-            beforeAfter: {
-                before: "https://www.islamiclandmarks.com/wp-content/uploads/2016/01/masjid_umar_jerusalem.jpg",
-                after: "https://upload.wikimedia.org/wikipedia/commons/8/87/Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_%28NE_exposure%29.jpg"
-            },
-            ruler: "Rashidun Caliphate",
-            eventType: "political",
-            significance: "Established Muslim presence in Jerusalem and laid the groundwork for future Islamic constructions on the Temple Mount.",
+
             location: {
                 lat: 31.7781,
                 lng: 35.2354,
@@ -55,17 +49,9 @@ const timelineData = {
                 "https://www.islamiclandmarks.com/wp-content/uploads/2016/02/masjid_dome_rock.jpg",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Jerusalem_Dome_of_the_rock_BW_14.JPG/1200px-Jerusalem_Dome_of_the_rock_BW_14.JPG"
             ],
-            beforeAfter: {
-                before: "https://www.worldhistory.org/img/c/p/1200x627/13277.jpg",
-                after: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Jerusalem-2013-Temple_Mount-Dome_of_the_Rock_%28NE_exposure%29.jpg"
-            },
-            ruler: "Umayyad Caliphate",
-            eventType: "construction",
-            significance: "Created one of the oldest existing Islamic monuments and established the architectural style that would influence mosque construction for centuries.",
             location: {
                 lat: 31.7781,
                 lng: 35.2356,
-                area: "Center of Temple Mount"
             }
         },
         {
@@ -78,17 +64,9 @@ const timelineData = {
                 "https://cdn.britannica.com/34/249434-050-B5256DCA/Al-Aqsa-Mosque-on-the-territory-of-the-Temple-Mount-in-the-Old-City-in-Jerusalem-Israel.jpg",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Dome_of_the_Al-Aqsa_Mosque_%2820160%29.jpg/1200px-Dome_of_the_Al-Aqsa_Mosque_%2820160%29.jpg"
             ],
-            beforeAfter: {
-                before: "https://study.com/cimages/multimages/16/jerusalem_al-aqsa_mosque_bw_45124641709987112445.jpg",
-                after: "https://upload.wikimedia.org/wikipedia/commons/8/87/Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_%28NE_exposure%29.jpg"
-            },
-            ruler: "Umayyad Caliphate",
-            eventType: "construction",
-            significance: "Established the main congregational mosque of Jerusalem, completing the Islamic transformation of the Temple Mount.",
             location: {
-                lat: 31.7764,
-                lng: 35.2354,
-                area: "Southern Temple Mount"
+                    lat: 31.7764,
+                    lng: 35.2354,
             }
         },
         {
@@ -101,17 +79,9 @@ const timelineData = {
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Mesjid_el-Aksa_and_Jami_el-Aksa_in_the_1841_Aldrich_and_Symonds_map_of_Jerusalem_%28cropped%29.jpg/220px-Mesjid_el-Aksa_and_Jami_el-Aksa_in_the_1841_Aldrich_and_Symonds_map_of_Jerusalem_%28cropped%29.jpg",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Dome_of_the_Al-Aqsa_Mosque_%2820160%29.jpg/1200px-Dome_of_the_Al-Aqsa_Mosque_%2820160%29.jpg"
             ],
-            beforeAfter: {
-                before: "https://upload.wikimedia.org/wikipedia/commons/8/87/Jerusalem-2013-Temple_Mount-Al-Aqsa_Mosque_%28NE_exposure%29.jpg",
-                after: "https://c7c8edde.rocketcdn.me/wp-content/uploads/Al_aqsa_moschee_2.jpg"
-            },
-            ruler: "Umayyad Caliphate",
-            eventType: "conflict",
-            significance: "First major destruction of the mosque, leading to significant rebuilding by the Abbasids.",
             location: {
                 lat: 31.7764,
                 lng: 35.2354,
-                area: "Southern Temple Mount"
             }
         },
     ],
@@ -125,17 +95,9 @@ const timelineData = {
                 "https://upload.wikimedia.org/wikipedia/commons/c/ce/Al-Aqsa_Mosque_%28Temple_Mount%2C_Jerusalem%2C_2008%29.jpg",
                 "https://static.timesofisrael.com/www/uploads/2019/10/F191006YS33-e1570371205727-1024x640.jpg"
             ],
-            beforeAfter: {
-                before: "https://c7c8edde.rocketcdn.me/wp-content/uploads/Al_aqsa_moschee_2.jpg",
-                after: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Interior_of_the_Al-Aksa_mosque%2C_Jerusalem._Chromolithograph_Wellcome_V0050126.jpg/220px-Interior_of_the_Al-Aksa_mosque%2C_Jerusalem._Chromolithograph_Wellcome_V0050126.jpg"
-            },
-            ruler: "Abbasid Caliphate",
-            eventType: "construction",
-            significance: "First major reconstruction under the Abbasids, establishing patterns of Islamic patronage for holy sites.",
             location: {
                 lat: 31.7764,
                 lng: 35.2354,
-                area: "Southern Temple Mount"
             }
         },
     ],
@@ -151,17 +113,9 @@ const timelineData = {
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Interior_of_the_Al-Aksa_mosque%2C_Jerusalem._Chromolithograph_Wellcome_V0050126.jpg/1280px-Interior_of_the_Al-Aksa_mosque%2C_Jerusalem._Chromolithograph_Wellcome_V0050126.jpg",
                 "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Al_Aqsa_Mosque_-_Temple_Mount_-_Jerusalem_%2812390288275%29.jpg/1280px-Al_Aqsa_Mosque_-_Temple_Mount_-_Jerusalem_%2812390288275%29.jpg"
             ],
-            beforeAfter: {
-                before: "",
-                after: ""
-            },
-            ruler: "Abbasid Caliphate",
-            eventType: "Expansion",
-            significance: "Creation of a larger mosque with fifteen aisles",
             location: {
                 lat: 31.7764,
                 lng: 35.2346,
-                area: ""
             }
         },
     ]
